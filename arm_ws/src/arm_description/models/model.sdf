@@ -91,6 +91,28 @@
             </visual>
         </link>
         
+        <link name='arm4'>
+            <pose>0 0 3.4 0 0 0</pose>
+            <gravity>0</gravity>
+
+            <collision name='collision'>
+                <geometry>
+                    <cylinder>
+                        <radius>.05</radius>
+                        <length>.5</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+
+            <visual name='visual'>
+                <geometry>
+                    <cylinder>
+                        <radius>.05</radius>
+                        <length>.5</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
 
 
         <joint type="revolute" name="chasis_arm1_joint">
