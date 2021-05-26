@@ -140,6 +140,16 @@
             </axis>
         </joint>
         
+        <joint type="revolute" name="arm3_arm4_joint">
+            <pose>0 0 -0.25 0 0 0</pose>
+            <child>arm4</child>
+            <parent>arm3</parent>
+            <axis>
+                <xyz>1 0 0</xyz>
+            </axis>
+        </joint>
+        
+        
         <plugin name="arm_control" filename="libarm_gazebo.so" />
 
     </model>
