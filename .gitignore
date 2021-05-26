@@ -290,3 +290,6 @@ devel/share/roseus/ros/PubSubPy/manifest.l
 devel/share/roseus/ros/PubSubPy/msg/Num.l
 devel/share/roseus/ros/PubSubPy/srv/AddTwoInts.l
 .catkin_workspace
+arm_ws/build/
+arm_ws/devel/
+
