@@ -307,8 +307,70 @@
                 </limit>
             </axis>
         </joint>
-
-
+        <joint name="arm4_arm5_joint" type="revolute">
+            <parent> arm4 </parent>
+            <child> arm5 </child>
+            <pose> 0 0 -0.01 0 0 0</pose>
+            <axis>
+                <xyz> 0 0 1  </xyz>
+                <dynamics>
+                    <damping>1.0</damping>
+                    <friction>0.3</friction>
+                </dynamics>
+                <limit>
+                    <effort>100</effort>
+                    <velocity>1.0</velocity>
+                </limit>
+            </axis>
+        </joint>
+        <joint name="arm5_arm6_joint" type="revolute">
+            <parent> arm5 </parent>
+            <child> arm6 </child>
+            <pose> 0 0 -0.01 0 0 0</pose>
+            <axis>
+                <xyz> 0 1 0  </xyz>
+                <dynamics>
+                    <damping>1.0</damping>
+                    <friction>0.3</friction>
+                </dynamics>
+                <limit>
+                    <effort>100</effort>
+                    <velocity>1.0</velocity>
+                </limit>
+            </axis>
+        </joint>
+        <joint name="arm6_arm7_joint" type="revolute">
+            <parent> arm6 </parent>
+            <child> arm7 </child>
+            <pose> 0 0 -0.1 0 0 0</pose>
+            <axis>
+                <xyz> 1 0 0</xyz>
+                <dynamics>
+                    <damping>1.0</damping>
+                    <friction>0.3</friction>
+                </dynamics>
+                <limit>
+                    <effort>100</effort>
+                    <velocity>1.0</velocity>
+                </limit>
+            </axis>
+        </joint>
+        <joint name="arm6_arm8_joint" type="revolute">
+            <parent> arm6 </parent>
+            <child> arm8 </child>
+            <pose> 0 0 -0.1 0 0 0</pose>
+            <axis>
+                <xyz> 1 0 0 </xyz>
+                <dynamics>
+                    <damping>1.0</damping>
+                    <friction>0.3</friction>
+                </dynamics>
+                <limit>
+                    <effort>100</effort>
+                    <velocity>1.0</velocity>
+                </limit>
+            </axis>
+        </joint>
 
         <plugin name="arm_control" filename="libarm_gazebo.so" />
         <plugin name="arm_control" filename="libgripper_controller.so" />
