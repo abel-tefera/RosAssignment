@@ -165,6 +165,80 @@
                 </geometry>
             </visual>
         </link>
+        <link name="arm7">
+            <!-- <gravity>0</gravity> -->
+            <pose>0 0.14 3.79 0 0 0</pose>
+            <inertial>
+                <mass>.005</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>.1 .02 .2</size>
+                    </box>
+                </geometry>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>500</mu>
+                            <mu2>500</mu2>
+                            <slip1>0.0</slip1>
+                            <slip2>0.0</slip2>
+                        </ode>
+                    </friction>
+                    <contact>
+                        <ode>
+                            <min_depth>5</min_depth>
+                            <kp>1e8</kp>
+                        </ode>
+                    </contact>
+                </surface>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>.1 .02 .2</size>
+                    </box>
+                </geometry>
+            </visual>
+        </link>
+        <link name="arm8">
+            <!-- <gravity>0</gravity> -->
+            <pose>0 -0.14 3.79 0 0 0</pose>
+            <inertial>
+                <mass>.005</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <box>
+                        <size>.1 .02 .2</size>
+                    </box>
+                </geometry>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>500</mu>
+                            <mu2>500</mu2>
+                            <slip1>0.0</slip1>
+                            <slip2>0.0</slip2>
+                        </ode>
+                    </friction>
+                    <contact>
+                        <ode>
+                            <min_depth>5</min_depth>
+                            <kp>1e8</kp>
+                        </ode>
+                    </contact>
+                </surface>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>.1 .02 .2</size>
+                    </box>
+                </geometry>
+            </visual>
+        </link>
 
         <joint type="revolute" name="chasis_arm1_joint">
             <pose>0 0 -0.025 0 0 0</pose>
