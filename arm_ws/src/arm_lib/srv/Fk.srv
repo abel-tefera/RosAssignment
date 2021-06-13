@@ -1,0 +1,4 @@
+float64[] arm_dim
+float64[] arr_jointPos
+---
+float64[] position
