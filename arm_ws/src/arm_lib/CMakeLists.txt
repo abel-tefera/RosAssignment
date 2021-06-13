@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  genmsg
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -47,18 +49,19 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+ add_message_files(
+   FILES
+   angles_message.msg
+   cmd_message.msg
+   xyz_coordinates.msg
+ )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+ add_service_files(
+   FILES
+   Fk.srv
+   Ik.srv
+ )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -68,10 +71,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+ generate_messages(
+   DEPENDENCIES
+   std_msgs
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -107,6 +110,8 @@ catkin_package(
 #  LIBRARIES arm_lib
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
+   CATKIN_DEPENDS message_runtime
+
 )
 
 ###########
@@ -163,7 +168,13 @@ include_directories(
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
+catkin_install_python(PROGRAMS scripts/fk.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
+catkin_install_python(PROGRAMS scripts/ik.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
 # install(TARGETS ${PROJECT_NAME}_node
@@ -204,3 +215,23 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+add_executable(listener src/setJoints.cpp)
+target_link_libraries(listener ${catkin_LIBRARIES})
+add_dependencies(listener arm_lib_generate_messages_cpp)
+
+add_executable(angles_message_publisher src/anglesMessagePublisher.cpp)
+target_link_libraries(angles_message_publisher ${catkin_LIBRARIES})
+add_dependencies(angles_message_publisher arm_lib_generate_messages_cpp)
+
+add_executable(cmd_message_publisher src/cmdMessagePublisher.cpp)
+target_link_libraries(cmd_message_publisher ${catkin_LIBRARIES})
+add_dependencies(cmd_message_publisher arm_lib_generate_messages_cpp)
+
+catkin_install_python(PROGRAMS scripts/fk.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+catkin_install_python(PROGRAMS scripts/ik.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
