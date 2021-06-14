@@ -373,6 +373,6 @@
         </joint>
 
         <plugin name="arm_control" filename="libarm_gazebo.so" />
-        <plugin name="arm_control" filename="libgripper_controller.so" />
+        <plugin name="arm_control" filename="libendeffector_controller.so" />
     </model>
 </sdf>
