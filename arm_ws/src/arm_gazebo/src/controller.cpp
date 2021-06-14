@@ -97,21 +97,21 @@ namespace gazebo
 			}
 		}
 
-		void setangles(const arm_gazebo::jointangles::ConstPtr &msg)
-		{
-			std::cout << "Angles Recieved" << std::endl;
-			ROS_INFO("Angles: [%.2f]", msg->joint1);
+		// void setangles(const arm_gazebo::jointangles::ConstPtr &msg)
+		// {
+		// 	std::cout << "Angles Recieved" << std::endl;
+		// 	ROS_INFO("Angles: [%.2f]", msg->joint1);
 
-			std::string jointname1 = this->model->GetJoint("chasis_arm1_joint")->GetScopedName();
-			std::string jointname2 = this->model->GetJoint("arm1_arm2_joint")->GetScopedName();
-			std::string jointname3 = this->model->GetJoint("arm2_arm3_joint")->GetScopedName();
-			std::string jointname4 = this->model->GetJoint("arm3_arm4_joint")->GetScopedName();
+		// 	std::string jointname1 = this->model->GetJoint("chasis_arm1_joint")->GetScopedName();
+		// 	std::string jointname2 = this->model->GetJoint("arm1_arm2_joint")->GetScopedName();
+		// 	std::string jointname3 = this->model->GetJoint("arm2_arm3_joint")->GetScopedName();
+		// 	std::string jointname4 = this->model->GetJoint("arm3_arm4_joint")->GetScopedName();
 
-			this->jointController->SetPositionTarget(jointname1, msg->joint1);
-			this->jointController->SetPositionTarget(jointname2, msg->joint2);
-			this->jointController->SetPositionTarget(jointname3, msg->joint3);
-			this->jointController->SetPositionTarget(jointname4, msg->joint4);
-		}
+		// 	this->jointController->SetPositionTarget(jointname1, msg->joint1);
+		// 	this->jointController->SetPositionTarget(jointname2, msg->joint2);
+		// 	this->jointController->SetPositionTarget(jointname3, msg->joint3);
+		// 	this->jointController->SetPositionTarget(jointname4, msg->joint4);
+		// }
 
 		void GetFk(double a1, double a2, double a3, double a4, double a5, double a6)
 		{
