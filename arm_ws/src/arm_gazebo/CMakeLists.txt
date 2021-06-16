@@ -26,7 +26,9 @@ include_directories(${Boost_INCLUDE_DIR}
               ${std_msgs_INCLUDE_DIRS})
 
 add_library(${PROJECT_NAME} SHARED src/controller.cpp)
+add_library(endeffector_controller SHARED src/endeffector_controller.cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES})
+target_link_libraries(endeffector_controller ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES})
 
 
 ## System dependencies are found with CMake's conventions
